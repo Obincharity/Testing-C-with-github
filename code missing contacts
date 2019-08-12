@@ -1,0 +1,178 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.cpp
+ * Author: matt
+ *
+ * Created on October 25, 2017, 5:38 PM
+ */
+
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+class Person
+{
+private:
+    string firstName;
+    string lastName;
+    string Age;
+    string phoneNumber;
+    string Id;
+public:
+    getFirstName();
+    getLastName();
+    getAge();
+    getPhoneNumber();
+    getId();
+    void addFirst(float fnameIn)
+    {
+        firstName = fnameIn;
+    }
+    void addLast (float lnameIn)
+    {
+        lastName = lnameIn;
+    }
+    void addAge (float ageIn)
+    {
+        Age = ageIn;
+    }
+    void addPhone (float phoneIn)
+    {
+        phoneNumber = phoneIn;
+    }
+    void addId (float idIn)
+    {
+        Id = idIn;
+    }
+    
+    
+};
+
+class Record
+{
+private: 
+    Person Record1;
+public:
+    void infoInsert()
+    {
+        cout << " Enter a first Name, Last Name, Age , phone number , and Id:" << endl;
+    }
+    
+    
+    
+};
+class Employer
+{
+private:
+    string employerName;
+public:
+    getEmployer();
+    void addEmployer(float enameIn)
+    {
+        employerName = enameIn;
+    }
+    
+    
+};
+class Sales: public Employer
+{
+private:
+    string salesId;
+public:
+    getSales();
+    void addSales(float salesIn)
+    {
+        salesId = salesIn;
+    }
+};
+class Service: public Employer
+{
+private:
+    string serviceId;
+public:
+    getService();
+    void addService(float serviceIn)
+    {
+        serviceId = serviceIn;
+        
+    }
+};
+class Manufacturing: public Employer
+{
+private:
+    string manufacturingId;
+public:
+    getManufacturing();
+    void addManufacturing(float manuIn)
+    {
+        manufacturingId = manuIn;
+        
+    }
+};
+ 
+vector<string>firstNames;
+vector<string>lastNames;
+vector<string>Age;
+vector<string>phoneNumber;
+vector<string>Id;
+int userInput;
+string fName;
+string lName;
+string iAge;
+string pNumber;
+string iId;
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+    cout << " 1 to add contacts, 2 to view contacts, and 3 to exit the program." << endl;
+    cin >> userInput;
+    
+    if (userInput == 1)
+        
+    {
+        cout << "how many entries would you like to make : ?" << endl;
+        cin >> userInput;
+         for( int a = userInput; a < 10; a = a + 1 ) {
+          cout << "Enter a first Name last Name Age Phone number and Id:  "  << endl;
+          cin >> fName >> lName >> iAge >> pNumber >> iId;
+          firstNames.push_back(fName);
+          lastNames.push_back(lName);
+          Age.push_back(iAge);
+          phoneNumber.push_back(pNumber);
+          Id.push_back(iId);
+          
+                  
+   }
+    }
+    
+    else if (userInput == 2)
+    {
+         for( int a = 0; a < 10; a = a + 1 ) {
+        cout << "First Name : " << firstNames[0] << endl;
+        cout << " Last Name : " << lastNames[0] << endl;
+        cout << " Age : " << Age[0] << endl;
+        cout << " phone Number : " << phoneNumber[0] << endl;
+        cout << " Id : " << Id[0] << endl;
+   }
+        
+    }
+    
+    else if (userInput == 3)
+    {
+        return 0;
+    }
+    
+    
+    
+
+    return 0;
+}
+
