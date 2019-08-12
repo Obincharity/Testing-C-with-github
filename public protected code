@@ -1,0 +1,130 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.cpp
+ * Author: matt
+ *
+ * Created on November 8, 2017, 8:41 AM
+ */
+
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+class Alien
+{
+protected:
+    int alienNumber;
+public:
+    Alien(int alienNumIn)
+    {
+        alienNumber = alienNumIn;
+    }
+    
+    int getalienNumber()
+    {
+        cout <<  "alien: " << endl;
+        return alienNumber;
+    }
+};
+
+class Soldier
+{
+protected:
+    int soldierNumber;
+public:
+    Soldier(int soldierNumIn)
+    {
+        soldierNumber = soldierNumIn;
+    }
+    
+    int getsoldierNumber()
+    {
+        cout << "soldier: " << endl;
+        return soldierNumber;
+    }
+};
+
+class Breed: public Alien
+{
+public:
+    Breed(int alienNumIn) : Alien( alienNumIn){}
+    int getalienNumber()
+    {
+        cout << "Breed " << endl;
+        return alienNumber;
+    }
+    
+};
+
+class Genome: public Alien
+{
+    public:
+    Genome(int alienNumIn) : Alien( alienNumIn){}
+    int getalienNumber()
+    {
+        cout << "Genome " << endl;
+        return alienNumber;
+    }
+    
+};
+
+class Rank: public Alien
+{
+    public:
+    Rank(int alienNumIn) : Alien( alienNumIn){}
+    int getalienNumber()
+    {
+        cout << "Rank  " << endl;
+        return alienNumber;
+    }
+};
+
+class Title: public Soldier
+{
+public:
+    Title(int soldierNumIn) : Soldier ( soldierNumIn){}
+    int getsoldierNumber()
+    {
+        cout << " Soldier " << endl;
+        return soldierNumber;
+    }
+};
+
+
+class Build: public Soldier
+{
+    public:
+    Build(int soldierNumIn) : Soldier ( soldierNumIn){}
+    int getsoldierNumber()
+    {
+        cout << " Build " << endl;
+        return soldierNumber;
+    }
+};
+
+class Race: public Soldier
+{
+    public:
+    Race(int soldierNumIn) : Soldier ( soldierNumIn){}
+    int getsoldierNumber()
+    {
+        cout << " Race " << endl;
+        return soldierNumber;
+    }
+};
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+    
+
+    return 0;
+}
+
