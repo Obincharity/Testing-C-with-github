@@ -1,0 +1,221 @@
+This is the header page code:
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   Record.h
+ * Author: matt
+ *
+ * Created on October 8, 2017, 7:07 PM
+ */
+#include <cstdlib>
+#include <iostream>
+#include <string>
+using namespace std;
+
+#ifndef RECORD_H
+#define RECORD_H
+
+
+class Record
+{
+    
+
+    private:
+        string recordNumber;
+        string firstName;
+        string lastName;
+        string age;
+        string telephoneNumber;
+    public:
+        explicit Record(string numIn, string fnameIn, string lnameIn, string ageIn, string telephoneIn):
+        recordNumber(numIn), firstName(fnameIn), lastName(lnameIn), age(ageIn), telephoneNumber(telephoneIn)
+        {
+            
+        }
+        void setRecordNumber(string numIn);
+        void setFirstName(string fnameIn);
+        void setLastName(string lnameIn);
+        void setAge(string ageIn);
+        void setTelephoneNumber (string telephoneIn);
+        string getRecordNumber();
+        string getFirstName();
+        string getLastName();
+        string getAge();
+        string getTelephoneNumber();
+    
+};
+
+
+
+#endif /* RECORD_H */
+
+
+This is the record.cpp code:
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+#include "Record.h"
+#include <string>
+
+void Record::setRecordNumber(string numIn)
+{
+    recordNumber = numIn;
+}
+
+void Record::setFirstName(string fnameIn)
+{
+    firstName = fnameIn;
+}
+
+void Record::setLastName(string lnameIn)
+{
+    lastName = lnameIn;
+}
+
+void Record::setTelephoneNumber(string telephoneIn)
+{
+    telephoneNumber = telephoneIn;
+}
+
+void Record::setAge(string ageIn)
+{
+    age = ageIn;
+}
+
+
+string Record::getRecordNumber()
+{
+    return recordNumber;
+}
+
+string Record::getFirstName()
+{
+    return firstName;
+}
+
+string Record::getLastName()
+{
+    return lastName;
+}
+
+string Record::getAge()
+{
+    return age;
+}
+
+string Record::getTelephoneNumber()
+{
+    return telephoneNumber;
+}
+
+This is the main cpp code:
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.cpp
+ * Author: matt
+ *
+ * Created on October 8, 2017, 9:37 PM
+ */
+
+#include "Record.h"
+#include <cstdlib>
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+int userInput;
+string recordNumber[10];
+string firstName[10];
+string lastName[10];
+string telephoneNumber[10];
+string age[10];
+int userChoice;
+string addRecord();
+string printRecord();
+
+
+
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+    
+    cout << " 1 to add a new record, 2 to view all records, 3 to exit the program: " << endl;
+    cin >> userChoice;
+    if (userChoice == 1)
+        
+    {
+         addRecord();
+    }
+    
+    else if (userChoice == 2)
+    {
+        printRecord();
+    }
+    
+    else if (userChoice ==3)
+    {
+        return 0;
+    }
+    else
+    {
+        cout << "please enter one of the three choices." << endl;
+        cin >> userChoice;
+    }
+        
+    
+    
+    
+
+    return 0;
+}
+
+string addRecord()
+{
+     for (int x = 0; x < 1; x++) {
+            cout<<"please enter record number: "<<endl;
+            cin >> recordNumber[x];
+            cout<<"please enter record First Name: "<<endl;
+            cin >> firstName[x];
+            cout<<"please enter record Last Name: "<<endl;
+            cin >> lastName[x];
+            cout<<"please enter record Age: "<<endl;
+            cin >> age[x];
+            cout<<"please enter record Phone Number: "<<endl;
+            cin >> telephoneNumber[x];
+     }
+}
+
+string printRecord()
+{
+    for (int x = 0; x < 10; x++) {
+            cout<< recordNumber[x]<<endl;
+            cout<<firstName[x]<<endl;
+            cout<<lastName[x]<<endl;
+            cout<<age[x]<<endl;
+            cout<<telephoneNumber[x]<<endl;
+    }
+    
+}
+
+
+
+
+       
+        
+    
+
+
