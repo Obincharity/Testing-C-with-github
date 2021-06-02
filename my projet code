@@ -1,0 +1,83 @@
+//Here is my parent component*********************************
+
+import React, { useState, useEffect } from "react";
+import './Inscription.css';
+import Axios from 'axios';
+import Adherents from "./Adherents";
+
+function Inscription (){
+  
+
+   const[Info,setInfo] = useState('')// this is what i showed you 
+
+
+    useEffect(() => {
+      getAllInfo();
+    }, []);
+
+
+    const getAllInfo = () =>{
+       Axios.get('http://localhost:3005/adherents')
+       .then((response) => {
+          setInfo(response.data)
+       })
+       .catch(error => console.log("error"))
+
+    }
+
+    return(
+        
+
+        <div className= "Inscription">
+              <Adherents data={Info}/>
+        </div>
+        
+    )
+}
+export default Inscription;
+
+
+//Here is my index.js in my server folder**************************************************************
+const express = require("express");
+const app = express();
+const mysql = require('mysql2');
+const cors = require('cors');
+
+app.use(cors());
+app.use(express.json());
+
+const db = mysql.createConnection({
+  user: 'root',
+  host: 'localhost',
+  password: 'obincharity',
+  database: 'adherents_system',
+  port: '3306',
+
+});
+
+app.get("/adherents", (res,req) => {
+  db.query("SELECT * FROM new_table", (err, result) => {
+    if (err){
+      console.log(err);
+    }else{
+      res.send(result);
+    }
+  });
+});
+    
+app.listen(3005, () =>{
+  console.log("server working");
+  });
+  
+  //Here is my child component******************************************************
+  
+  import React from 'react'
+
+export default function Adherents(props) {
+    console.log(props.data)
+    return(
+         <>
+         
+         </>
+    )
+    }
